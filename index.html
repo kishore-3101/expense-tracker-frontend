@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-left">
+                <span class="logo">₹</span>
+                <div>
+                    <p class="header-sub">Welcome back</p>
+                    <h1 id="userName">Your Expenses</h1>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="openModal">
+                    <span class="btn-icon">+</span>
+                    <span>Add Expense</span>
+                </button>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="totalExpense">
+            <div>
+                <span class="total-label">Total Spent</span>
+                <span class="total-amount">₹0.00</span>
+            </div>
+            <div class="total-icon">↓</div>
+        </div>
+
+        <div id="monthNav">
+            <span id="monthLabel"></span>
+            <div style="display: flex; gap: 8px;">
+                <button id="prevMonth">←</button>
+                <button id="nextMonth">→</button>
+            </div>
+        </div>
+
+        <div id="expenseContainer"></div>
+    </main>
+
+    <!-- Add Expense Modal -->
+    <div id="modalOverlay" class="overlay">
+        <div id="modal" class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-icon">+</span>
+                    <h2>New Expense</h2>
+                </div>
+                <button id="closeModal" type="button" class="close-btn">✕</button>
+            </div>
+            <form id="expenseForm">
+                <div class="field">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="0.00" required />
+                </div>
+                <div class="field">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="What did you spend on?" required />
+                </div>
+                <div class="field">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required />
+                </div>
+                <button type="submit" class="submit-btn">Save Expense</button>
+                <p id="msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Expense Detail Modal -->
+    <div id="detailOverlay" class="overlay">
+        <div id="detailModal" class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-icon">₹</span>
+                    <h2>Expense Details</h2>
+                </div>
+                <button id="closeDetailModal" type="button" class="close-btn">✕</button>
+            </div>
+            <p id="detail-id"></p>
+            <div class="field">
+                <label>Amount (₹)</label>
+                <input type="number" id="detail-amount" />
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <input type="text" id="detail-description" />
+            </div>
+            <div class="field">
+                <label>Date</label>
+                <input type="date" id="detail-date" />
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 8px;">
+                <button id="editExpense">Edit Expense</button>
+                <button id="deleteExpense">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Delete Popup -->
+    <div id="confirmOverlay" class="overlay">
+        <div class="modal-box" style="max-width: 360px; text-align: center;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 8px;">Delete Expense?</h2>
+            <p style="color: var(--text-mid); font-size: 14px; margin-bottom: 24px;">This action cannot be undone.</p>
+            <div style="display: flex; gap: 10px;">
+                <button id="cancelDelete">Cancel</button>
+                <button id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

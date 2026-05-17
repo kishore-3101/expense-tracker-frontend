@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-box">
+
+            <div class="auth-header">
+                <p class="auth-welcome">Welcome</p>
+                <h2 id="authTitle">Sign In</h2>
+            </div>
+
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="loginTab" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" id="registerTab" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form" id="loginForm">
+                <div class="auth-field">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="you@gmail.com" required />
+                </div>
+                <div class="auth-field">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="auth-btn">Sign In →</button>
+                <p id="loginMsg" class="auth-msg"></p>
+            </form>
+
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm" style="display:none;">
+                <div class="auth-field">
+                    <label>Full Name</label>
+                    <input type="text" id="registerName" placeholder="Kishore" required />
+                </div>
+                <div class="auth-field">
+                    <label>Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="you@gmail.com" required />
+                </div>
+                <div class="auth-field">
+                    <label>Password</label>
+                    <input type="password" id="registerPassword" placeholder="••••••••" required />
+                </div>
+                <div class="auth-field">
+                    <label>Re-enter Password</label>
+                    <input type="password" id="registerPassword2" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="auth-btn">Register →</button>
+                <p id="registerMsg" class="auth-msg"></p>
+            </form>
+
+            <!-- Switch link -->
+            <p class="auth-switch" id="authSwitch">
+                Already have an account? <a onclick="switchTab('login')">Sign In</a>
+            </p>
+
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
